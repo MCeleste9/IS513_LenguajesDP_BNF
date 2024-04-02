@@ -1,0 +1,14 @@
+func suma(a, b) {
+    return a + b; }
+
+func main() {
+    var x = 5;
+    var y = 3;
+    
+    var resultado = suma(x, y);
+    
+    if (resultado > 9) {
+        print("El resultado es mayor que 9"); } 
+   else {
+        print("El resultado es menor o igual que 9"); }
+}
