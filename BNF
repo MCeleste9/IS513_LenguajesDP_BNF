@@ -1,0 +1,62 @@
+
+<programa> ::= <bloque_principal>
+
+<bloque_principal> ::= inicio <declaracion_variables> <declaracion_funciones> <sentencias> fin
+
+<declaracion_variables> ::= var <lista_variables>
+
+<lista_variables> ::= <tipo_dato> <identificador> <lista_variables> | vacio
+
+<tipo_dato> ::= entero | flotante | caracter | booleano | estructura
+
+<identificador> ::= [a-zA-Z]+
+
+<declaracion_funciones> ::= <funcion> <declaracion_funciones> | vacio
+
+<funcion> ::= funcion <tipo_retorno> <nombre_funcion> (<parametros>) <bloque_funcion>
+
+<tipo_retorno> ::= <tipo_dato> | vacio
+
+<nombre_funcion> ::= [a-zA-Z]+
+
+<parametros> ::= <lista_parametros> | vacio
+
+<lista_parametros> ::= <tipo_dato> <identificador> <lista_parametros_restantes>
+
+<lista_parametros_restantes> ::= , <tipo_dato> <identificador> <lista_parametros_restantes> | vacio
+
+<bloque_funcion> ::= inicio <declaracion_variables> <sentencias> fin
+
+<sentencias> ::= <sentencia> <sentencias> | vacio
+
+<sentencia> ::= <asignacion> | <estructura_repetitiva> | <estructura_seleccion> | <llamada_funcion> | <entrada_salida>
+
+<asignacion> ::= <identificador> = <expresion>;
+
+<expresion> ::= <termino> | <expresion> + <termino> | <expresion> - <termino>
+
+<termino> ::= <factor> | <termino> * <factor> | <termino> / <factor>
+
+<factor> ::= <identificador> | <numero> | ( <expresion> )
+
+<numero> ::= [0-9]+
+
+<estructura_repetitiva> ::= mientras (<condicion>) <bloque_repetitivo>
+
+<condicion> ::= <expresion> <operador_relacional> <expresion>
+
+<operador_relacional> ::= == | != | < | > | <= | >=
+
+<bloque_repetitivo> ::= inicio <sentencias> fin
+
+<estructura_seleccion> ::= si (<condicion>) <bloque_si> sino <bloque_sino>
+
+<bloque_si> ::= inicio <sentencias> fin
+
+<bloque_sino> ::= inicio <sentencias> fin
+
+<llamada_funcion> ::= <nombre_funcion> (<argumentos>);
+
+<argumentos> ::= <expresion> | <expresion>, <argumentos>
+
+<entrada_salida> ::= leer (<identificador>); | imprimir (<expresion>);
